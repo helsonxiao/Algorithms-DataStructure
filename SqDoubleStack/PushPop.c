@@ -44,7 +44,7 @@ int main()
 {
     SqDoubleStack stack;
     stack.top1 = -1;
-    stack.top2 = MAXSIZE - 1;
+    stack.top2 = MAXSIZE;
     int stack1 = 1, stack2 = 2;
     SElemType e;
 
