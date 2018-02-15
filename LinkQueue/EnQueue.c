@@ -34,13 +34,14 @@ Status DeQueue (LinkQueue *Q, QElemType *e)
     return OK;
 }
 
-// int main()
-// {
-//     LinkQueue Q;
-//     int s = EnQueue(&Q, 7);
-//     printf("%d", s);
+int main()
+{
+    LinkQueue Q;
+    InitQueue(&Q);
+    int s = EnQueue(&Q, 7);
+    printf("%d", s);
 
-//     QElemType e;
-//     DeQueue(&Q, &e);
-//     printf("%d", e);
-// }
+    QElemType e;
+    DeQueue(&Q, &e);
+    printf("%d", e);
+}

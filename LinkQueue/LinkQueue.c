@@ -17,3 +17,12 @@ typedef struct
 #define ERROR 0
 #define OVERFLOW 0
 typedef int Status;
+
+Status InitQueue (LinkQueue *Q)
+{
+    Q->front->data = 0;
+    Q->front->next = NULL;
+    Q->rear = Q->front;
+
+    return OK;
+}
