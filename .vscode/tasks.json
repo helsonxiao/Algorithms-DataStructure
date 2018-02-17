@@ -9,6 +9,7 @@
             "command": "gcc",
             "args": [
                 "-g",
+                "-Wall",
                 "${file}"
             ],
             "group": {
