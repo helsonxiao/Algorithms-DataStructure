@@ -1,5 +1,4 @@
 #! /usr/bin/python
-# coding: utf-8
 from copy import copy
 
 with open('./escape.in', 'r') as params:
@@ -54,14 +53,14 @@ while T > 0 and S > 0:
 
 
 if S <= 0:
-    status = True
+    status = 'Yes'
     print(status, T_copy - T)
     with open('./escape.out', 'w') as output:
-        output.write(str(status) + '\n')
+        output.write(status + '\n')
         output.write(str(T_copy - T))
 else:
-    status = False
+    status = 'No'
     print(status, S_copy - S)
     with open('./escape.out', 'w') as output:
-        output.write(str(status) + '\n')
+        output.write(status + '\n')
         output.write(str(S_copy - S))
