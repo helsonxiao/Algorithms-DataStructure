@@ -18,11 +18,10 @@ def get_flash_CD(magv):
     return 1 + get_flash_CD(magv + FLASH_RECOVER)
 
 
-def one_step_helper(magv, distance, time):
-    if magv // FLASH_CONSUME != 0:
+def one_step_helper(magv, distance, time, CD):
+    if CD == 0:
         return 'flash'
 
-    CD = get_flash_CD(magv)
     if (CD < time):
         run_distance = (CD + 1) * RUN_SPEED
         flash_distance = FLASH_SPEED
@@ -42,9 +41,9 @@ status = None
 
 while T > 0 and S > 0:
     T -= 1
-    if one_step_helper(M, S, T) is 'flash':
+    CD = get_flash_CD(M)
+    if one_step_helper(M, S, T, CD) is 'flash':
         if M < FLASH_CONSUME:
-            CD = get_flash_CD(M)
             T -= CD
             M += FLASH_RECOVER * CD
 
