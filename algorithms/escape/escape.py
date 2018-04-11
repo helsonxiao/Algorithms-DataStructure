@@ -11,14 +11,14 @@ with open('./escape.in', 'r') as params:
     T_copy = copy(T)
 
 
-def get_flash_CD(magv):
+def get_flash_CD(magv, CD=0):
     if magv // FLASH_CONSUME != 0:
-        return 0
+        return CD
 
-    return 1 + get_flash_CD(magv + FLASH_RECOVER)
+    return get_flash_CD(magv + FLASH_RECOVER, CD + 1)
 
 
-def one_step_helper(magv, distance, time, CD):
+def one_step_helper(time, CD):
     if CD == 0:
         return 'flash'
 
@@ -42,7 +42,7 @@ status = None
 while T > 0 and S > 0:
     T -= 1
     CD = get_flash_CD(M)
-    if one_step_helper(M, S, T, CD) is 'flash':
+    if one_step_helper(T, CD) is 'flash':
         if M < FLASH_CONSUME:
             T -= CD
             M += FLASH_RECOVER * CD
