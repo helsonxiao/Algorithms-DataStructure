@@ -1,13 +1,10 @@
 #! /usr/bin/python
-from copy import copy
 
 with open('./escape.in', 'r') as params:
     params = params.read().split(' ', 2)
     M = int(params[0])  # magic value
     S = int(params[1])  # distance
     T = int(params[2])  # time
-    S_copy = copy(S)
-    T_copy = copy(T)
 
 RUN_SPEED = 17
 FLASH_SPEED = 60
