@@ -11,67 +11,47 @@ with open('./escape.in', 'r') as params:
     T_copy = copy(T)
 
 
-class EscapeType(object):
-    RUN = 'run'
-    FLASH = 'flash'
-
-
-class EscapeSpeed(object):
-    RUN = 17
-    FLASH = 60
-
-
-class Flash(object):
-    CONSUME = 10
-    RECOVER = 4
-
-
 def get_flash_CD(magv):
-    if magv // Flash.CONSUME != 0:
+    if magv // FLASH_CONSUME != 0:
         return 0
 
-    return 1 + get_flash_CD(magv + Flash.RECOVER)
-
-
-def get_run_distance(t):
-    return t * EscapeSpeed.RUN
-
-
-def one_step(es_type, es_speed):
-    return {'%s' % es_type: es_speed}
+    return 1 + get_flash_CD(magv + FLASH_RECOVER)
 
 
 def one_step_helper(magv, distance, time):
-    if magv // Flash.CONSUME != 0:
-        return one_step(EscapeType.FLASH, EscapeSpeed.FLASH)
+    if magv // FLASH_CONSUME != 0:
+        return 'flash'
 
-    cd = get_flash_CD(magv)
-    if (cd < time):
-        run_distance = get_run_distance(cd + 1)
-        flash_distance = EscapeSpeed.FLASH
+    CD = get_flash_CD(magv)
+    if (CD < time):
+        run_distance = (CD + 1) * RUN_SPEED
+        flash_distance = FLASH_SPEED
         if (run_distance > flash_distance):
-            return one_step(EscapeType.RUN, EscapeSpeed.RUN)
+            return 'run'
 
-        return one_step(EscapeType.FLASH, EscapeSpeed.FLASH)
+        return 'flash'
 
-    return one_step(EscapeType.RUN, EscapeSpeed.RUN)
+    return 'run'
 
+
+RUN_SPEED = 17
+FLASH_SPEED = 60
+FLASH_CONSUME = 10
+FLASH_RECOVER = 4
 status = None
-all_steps = []
 
 while T > 0 and S > 0:
-    all_steps.append(one_step_helper(M, S, T))
     T -= 1
-    if EscapeType.FLASH in all_steps[-1]:
-        if M < Flash.CONSUME:
-            cd = get_flash_CD(M)
-            T -= cd
-            M += Flash.RECOVER * cd
+    if one_step_helper(M, S, T) is 'flash':
+        if M < FLASH_CONSUME:
+            CD = get_flash_CD(M)
+            T -= CD
+            M += FLASH_RECOVER * CD
 
-        M -= Flash.CONSUME
-        S -= EscapeSpeed.FLASH
+        M -= FLASH_CONSUME
+        S -= FLASH_SPEED
     else:
-        S -= EscapeSpeed.RUN
+        S -= RUN_SPEED
 
 
 if S <= 0:
