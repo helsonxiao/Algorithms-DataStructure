@@ -1,5 +1,5 @@
 #include <stdio.h>
-#define MAXVEX 100
+#define MAXVEX 10
 #define INFINITY 65535
 typedef char VertexType;
 typedef int EdgeType;
@@ -13,15 +13,16 @@ typedef struct
 void CreateMGraph (MGraph *G)
 {
     int i, j, k, w;
-    printf("输入 numVertexes:\n");
+    printf("set numVertexes:\n");
     scanf("%d", &G->numVertexes);
-    printf("输入 numEdges:\n");
+    printf("set numEdges:\n");
     scanf("%d", &G->numEdges);
 
     // 输入顶点信息
     for (i=0; i<G->numVertexes; i++)
     {
-        scanf(&G->vexs[i]);
+        printf("set NO.%d vertex name: ", i);
+        scanf("%s", &G->vexs[i]);
     }
 
     // 矩阵初始化
@@ -36,8 +37,8 @@ void CreateMGraph (MGraph *G)
     // 输入 (vi, vj) 信息
     for (k=0; k<G->numEdges; k++)
     {
-        printf("请输入无向图的下标和权 i, j, w:\n");
-        scanf("%d, %d, %d", i, j, w);
+        printf("set undirected graph vertexes and weight i, j, w:\n");
+        scanf("%d, %d, %d", &i, &j, &w);
         G->arc[i][j] = w;
         G->arc[j][i] = G->arc[i][j];
     }

@@ -6,8 +6,8 @@
         {
             "label": "build",
             "type": "shell",
-            "command": "g++",
-            // "command": "gcc",
+            // "command": "g++",
+            "command": "gcc",
             "args": [
                 "-g",
                 "-Wall",
