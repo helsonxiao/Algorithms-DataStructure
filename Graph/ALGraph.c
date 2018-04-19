@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #define MAXVEX 10
 typedef char VertexType;
 typedef int EdgeType;
@@ -32,7 +33,7 @@ void CreateALGraph (GraphAdjList *G)
     // init vertexes
     for (i=0; i<G->numVertexes; i++)
     {
-        scanf(&G->adjList[i].data);
+        scanf("%s", &G->adjList[i].data);
         G->adjList[i].firstedge = NULL;
     }
 
