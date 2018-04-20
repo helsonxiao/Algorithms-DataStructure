@@ -33,6 +33,7 @@ void CreateALGraph (GraphAdjList *G)
     // init vertexes
     for (i=0; i<G->numVertexes; i++)
     {
+        printf("set NO.%d vertex name: ", i);
         scanf("%s", &G->adjList[i].data);
         G->adjList[i].firstedge = NULL;
     }
