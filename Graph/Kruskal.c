@@ -17,9 +17,7 @@ void MiniSpanTree_Kruskal (MGraph G)
     int parent[MAXVEX];
 
     for (i = 0; i < G.numVertexes; i++)
-    {
         parent[i]= 0;
-    }
 
     for (i = 0; i < G.numEdges; i++)
     {
@@ -36,9 +34,7 @@ void MiniSpanTree_Kruskal (MGraph G)
 int Find (int *parent, int f)
 {
     while (parent[f] > 0)
-    {
         f = parent[f];
-    }
 
     return f;
 }
