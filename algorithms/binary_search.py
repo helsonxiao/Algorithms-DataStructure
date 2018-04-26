@@ -2,25 +2,6 @@
 # -*- coding: utf-8 -*-
 import math
 
-# def binary_search(bucket, egg):
-# 	low = 0
-# 	high = len(bucket) - 1
-# 	middle_egg_index = math.ceil(len(high) / 2)
-# 	middle_egg = bucket[middle_egg_index]
-
-# 	if (egg = middle_egg):
-# 		return middle_egg_index
-
-# 	if (egg < middle_egg):
-# 		if (middle_egg_index / 2 == 0):
-# 			return middle_egg_index
-
-# 		high = middle_egg_index - 1
-# 		new_bucket = 
-# 		return binary_search(new_bucket, egg)
-
-# 上述算法尚未完成，并且存在极大的复杂性，不如下面优美。
-
 def binary_search(bucket, egg):
 	low = 0
 	high = len(bucket) - 1
