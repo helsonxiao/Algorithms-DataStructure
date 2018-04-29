@@ -1,5 +1,5 @@
 .DS_Store
 temp.sql
 last.sql
-a.out
+*.out
 a.out.dSYM

@@ -1,6 +1,6 @@
 #! /usr/bin/python
 
-with open('./escape.in', 'r') as params:
+with open('./algorithms/escape/escape.in', 'r') as params:
     params = params.read().split(' ', 2)
     M = int(params[0])  # magic value
     S = int(params[1])  # distance
@@ -38,11 +38,11 @@ for t in range(1, T + 1):
 
 if status == 'Yes':
     print(status, end_time)
-    with open('./escape.out', 'w') as output:
+    with open('./algorithms/escape/escape.out', 'w') as output:
         output.write(status + '\n')
         output.write(str(end_time))
 else:
     print(status, times[T])
-    with open('./escape.out', 'w') as output:
+    with open('./algorithms/escape/escape.out', 'w') as output:
         output.write(status + '\n')
         output.write(str(times[T]))

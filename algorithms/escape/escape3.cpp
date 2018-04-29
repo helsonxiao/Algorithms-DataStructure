@@ -6,8 +6,8 @@ using namespace std;
 
 int main()
 {
-    ifstream fin("escape.in");
-    ofstream fout("escape.out");
+    ifstream fin("algorithms/escape/escape.in");
+    ofstream fout("algorithms/escape/escape.out");
     int M, S, T;
     fin >> M >> S >> T;
     vector<int> times(T + 1);

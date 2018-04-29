@@ -1,7 +1,7 @@
 #! /usr/bin/python
 from copy import copy
 
-with open('./escape.in', 'r') as params:
+with open('./algorithms/escape/escape.in', 'r') as params:
     params = params.read().split(' ', 2)
     M = int(params[0])  # magic value
     S = int(params[1])  # distance
@@ -55,12 +55,12 @@ while T > 0 and S > 0:
 if S <= 0:
     status = 'Yes'
     print(status, T_copy - T)
-    with open('./escape.out', 'w') as output:
+    with open('./algorithms/escape/escape.out', 'w') as output:
         output.write(status + '\n')
         output.write(str(T_copy - T))
 else:
     status = 'No'
     print(status, S_copy - S)
-    with open('./escape.out', 'w') as output:
+    with open('./algorithms/escape/escape.out', 'w') as output:
         output.write(status + '\n')
         output.write(str(S_copy - S))
