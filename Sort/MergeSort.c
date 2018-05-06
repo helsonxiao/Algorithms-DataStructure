@@ -36,14 +36,12 @@ void MSort(int SR[], int TR1[], int s, int t)
 
 int main()
 {
-    SqList L;
-    int r[] = {50, 10, 90, 30, 70, 40, 80, 60, 20};
-    int i;
-    L.length = 9;
-    for (i = 0; i < L.length; i++)
-        L.r[i] = r[i];
+    SqList L = {
+        {50, 10, 90, 30, 70, 40, 80, 60, 20},
+        9,
+    };
 
-    MSort(L.r, L.r, 0, L.length-1);
-    for (i = 0; i < L.length; i++)
+    MSort(L.r, L.r, 0, L.length - 1);
+    for (int i = 0; i < L.length; i++)
         printf("%d ", L.r[i]);
 }
